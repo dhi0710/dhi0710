@@ -1,0 +1,20 @@
+.flowscene .fpanel{left:120px;top:0;bottom:0;width:590px;display:flex;flex-direction:column;justify-content:center}
+.fchip{display:inline-flex;align-items:center;background:var(--copper);color:var(--ink);font-weight:700;font-size:18px;padding:7px 16px;border-radius:999px;letter-spacing:.02em}
+.fwho{font-size:19px;color:var(--muted-d);font-weight:500}
+.ftitle{font-size:50px;line-height:1.12;margin-top:22px}
+.fsteps{margin-top:34px}
+.fstep{display:flex;gap:16px;align-items:flex-start;font-size:22px;line-height:1.35;padding:8px 0;color:rgba(244,241,236,.32)}
+.fstep .fdot{flex:none;width:14px;height:14px;border-radius:50%;margin-top:8px;border:2px solid rgba(244,241,236,.25)}
+.fstep.done{color:var(--muted-d)}
+.fstep.done .fdot{border-color:var(--copper);background:transparent}
+.fstep.now{color:var(--cream);font-weight:600}
+.fstep.now .fdot{border-color:var(--copper);background:var(--copper);box-shadow:0 0 0 6px rgba(214,138,74,.22)}
+.ftrack{margin-top:30px;height:4px;border-radius:4px;background:var(--line-d);overflow:hidden}
+.fbar{height:100%;background:var(--copper);transform-origin:0 50%;transform:scaleX(0)}
+.fdemo{margin-top:20px;font-size:17px;color:var(--muted-d);letter-spacing:.04em}
+.fcard{left:760px;top:40px;width:1080px;height:1000px;background:#E6E4E0;border-radius:32px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.fcard img{height:960px;display:block}
+.pcol{top:270px;width:800px}
+.fcard.pc{position:relative;left:0;top:0;width:800px;height:640px}
+.fcard.pc img{height:620px}
+.pcap{margin-top:24px;font-size:26px;display:flex;gap:14px;align-items:center}

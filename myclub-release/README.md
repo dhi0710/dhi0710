@@ -1,4 +1,28 @@
-# myclub release video
+# myclub release videos
+
+| File | What it is | Length |
+|---|---|---|
+| `myclub-release-v2.mp4` | Release video with real recorded flows (highlights) | 1:56 |
+| `myclub-walkthrough.mp4` | Every guest flow (14), step by step, grouped A–E | 3:19 |
+| `myclub-release.mp4` | First version, motion graphics only | 1:20 |
+
+All are 1920×1080, 30 fps, no audio. Demo merchant in the recordings: Cafe Bateel.
+
+## Rebuilding v2 / walkthrough
+`source-v2/` holds the page builder and engine. The cut frames are not committed (≈300 MB); regenerate them from the screen recordings:
+
+```bash
+cd source-v2
+python3 tools/prep_flows.py <folder with the .mov recordings> flows   # cut list + crops live in this file
+python3 tools/snap_steps.py flows                                    # align step labels with screen changes
+python3 build.py                                                     # writes release.html and walkthrough.html
+node render.js release.html ../myclub-release-v2.mp4 30
+node render.js walkthrough.html ../myclub-walkthrough.mp4 30
+```
+
+---
+
+## v1
 
 `myclub-release.mp4`: 1920×1080, 30 fps, 80 s, no audio. Built from the *loyalty_my_club* deck.
 

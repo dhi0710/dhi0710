@@ -1,0 +1,36 @@
+:root{
+  --ink:#16130F; --ink2:#221D18; --ink3:#2E2720; --cream:#F4F1EC; --paper:#FBFAF7;
+  --copper:#D68A4A; --copper2:#E3B183; --muted-d:#A99E92; --muted-l:#6E655C; --line-d:#3A322A; --line-l:#E4DED5;
+  --green:#3F9A5B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden}
+.dark{background:var(--ink);color:var(--cream)}
+.light{background:var(--cream);color:var(--ink)}
+.stage{position:absolute;inset:0;transform-origin:50% 50%}
+.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(20px)}
+.dark .glow{background:radial-gradient(circle,rgba(214,138,74,.28) 0%,rgba(214,138,74,.08) 40%,rgba(214,138,74,0) 70%)}
+.light .glow{background:radial-gradient(circle,rgba(214,138,74,.16) 0%,rgba(214,138,74,.05) 40%,rgba(214,138,74,0) 70%)}
+.serif{font-family:Gelasio,Georgia,serif}
+.eyebrow{font-size:20px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)}
+h1,h2{font-family:Gelasio,Georgia,serif;font-weight:500;letter-spacing:-.01em}
+h2{font-size:76px;line-height:1.08}
+.copper{color:var(--copper)}
+.it{font-style:italic}
+.p{font-size:28px;line-height:1.45}
+.dark .p,.dark .muted{color:var(--muted-d)}
+.light .p,.light .muted{color:var(--muted-l)}
+.abs{position:absolute}
+.row{display:flex}
+[data-in]{opacity:0}
+/* cards */
+.card-d{background:var(--ink2);border:1px solid var(--line-d);border-radius:28px}
+.card-l{background:var(--paper);border-radius:28px;box-shadow:0 30px 80px rgba(40,25,10,.14),0 4px 14px rgba(40,25,10,.06)}
+.num{font-family:Gelasio,Georgia,serif;color:var(--copper)}
+.ico{width:64px;height:64px;border-radius:18px;background:rgba(214,138,74,.14);display:flex;align-items:center;justify-content:center}
+.ico svg{width:34px;height:34px;stroke:var(--copper);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:999px;font-size:22px;font-weight:500}
+.chip{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;font-size:20px;font-weight:500;background:#F1ECE5;color:#4A423A}
+.chip.on{background:var(--ink);color:var(--cream)}
