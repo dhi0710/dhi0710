@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>myclub release</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --ink:#16130F; --ink2:#221D18; --ink3:#2E2720; --cream:#F4F1EC; --paper:#FBFAF7;
+  --copper:#D68A4A; --copper2:#E3B183; --muted-d:#A99E92; --muted-l:#6E655C; --line-d:#3A322A; --line-l:#E4DED5;
+  --green:#3F9A5B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden}
+.dark{background:var(--ink);color:var(--cream)}
+.light{background:var(--cream);color:var(--ink)}
+.stage{position:absolute;inset:0;transform-origin:50% 50%}
+.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(20px)}
+.dark .glow{background:radial-gradient(circle,rgba(214,138,74,.28) 0%,rgba(214,138,74,.08) 40%,rgba(214,138,74,0) 70%)}
+.light .glow{background:radial-gradient(circle,rgba(214,138,74,.16) 0%,rgba(214,138,74,.05) 40%,rgba(214,138,74,0) 70%)}
+.serif{font-family:Gelasio,Georgia,serif}
+.eyebrow{font-size:20px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)}
+h1,h2{font-family:Gelasio,Georgia,serif;font-weight:500;letter-spacing:-.01em}
+h2{font-size:76px;line-height:1.08}
+.copper{color:var(--copper)}
+.it{font-style:italic}
+.p{font-size:28px;line-height:1.45}
+.dark .p,.dark .muted{color:var(--muted-d)}
+.light .p,.light .muted{color:var(--muted-l)}
+.abs{position:absolute}
+.row{display:flex}
+[data-in]{opacity:0}
+/* cards */
+.card-d{background:var(--ink2);border:1px solid var(--line-d);border-radius:28px}
+.card-l{background:var(--paper);border-radius:28px;box-shadow:0 30px 80px rgba(40,25,10,.14),0 4px 14px rgba(40,25,10,.06)}
+.num{font-family:Gelasio,Georgia,serif;color:var(--copper)}
+.ico{width:64px;height:64px;border-radius:18px;background:rgba(214,138,74,.14);display:flex;align-items:center;justify-content:center}
+.ico svg{width:34px;height:34px;stroke:var(--copper);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:999px;font-size:22px;font-weight:500}
+.chip{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;font-size:20px;font-weight:500;background:#F1ECE5;color:#4A423A}
+.chip.on{background:var(--ink);color:var(--cream)}
+</style>
+</head>
+<body>
+<div id="root">
+
+<!-- 1 INTRO -->
+<section class="scene dark" data-dur="4.6" id="intro">
+  <div class="glow" data-drift="1" style="width:1300px;height:1300px;left:-200px;top:-500px"></div>
+  <div class="glow" data-drift="-1" style="width:1100px;height:1100px;right:-300px;bottom:-500px"></div>
+  <div class="stage">
+    <div class="abs" style="left:0;right:0;top:300px;text-align:center">
+      <div class="eyebrow" data-in="0.3">Introducing</div>
+      <div class="serif" data-in="0.7" data-y="50" style="font-size:230px;font-weight:500;line-height:1.05;margin-top:24px;letter-spacing:-.02em">my<span class="copper it">club</span></div>
+      <div class="p" data-in="1.5" style="margin-top:28px;font-size:34px;color:var(--copper2)">Guest engagement for restaurants, by qlub</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 HOOK -->
+<section class="scene dark" data-dur="5" id="hook">
+  <div class="glow" data-drift="1" style="width:1400px;height:1400px;left:700px;top:-300px"></div>
+  <div class="stage">
+    <div class="abs" style="left:180px;top:330px;right:180px">
+      <h1 data-in="0.2" style="font-size:110px;line-height:1.1">Loyalty isn’t the product.</h1>
+      <h1 data-in="1.3" class="copper it" style="font-size:110px;line-height:1.1">Knowing your guest is.</h1>
+      <div class="p" data-in="2.5" style="margin-top:48px;max-width:1200px">myclub sits on the qlub checkout your guests already use. No app to build, no POS change, no hardware.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PILLARS -->
+<section class="scene dark" data-dur="7" id="pillars">
+  <div class="glow" data-drift="1" style="width:1200px;height:1200px;left:-400px;top:300px"></div>
+  <div class="stage">
+    <div class="abs" style="left:140px;top:130px;right:140px">
+      <div class="eyebrow" data-in="0.1">What myclub is</div>
+      <h2 data-in="0.3" style="margin-top:22px">Four things, on the checkout you already run.</h2>
+    </div>
+    <div class="abs row" style="left:140px;right:140px;top:440px;gap:32px">
+      <div class="card-d" data-in="1.0" data-y="60" style="flex:1;padding:44px 40px;height:440px">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div>
+        <div class="num" style="font-size:24px;margin-top:40px">01</div>
+        <div class="serif" style="font-size:40px;margin-top:10px;min-height:100px;line-height:1.2">Identify your guest</div>
+        <div class="p" style="font-size:23px;margin-top:16px">They join in three taps at the table, and you know them every visit after.</div>
+      </div>
+      <div class="card-d" data-in="1.35" data-y="60" style="flex:1;padding:44px 40px;height:440px">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg></div>
+        <div class="num" style="font-size:24px;margin-top:40px">02</div>
+        <div class="serif" style="font-size:40px;margin-top:10px;min-height:100px;line-height:1.2">Engage with them</div>
+        <div class="p" style="font-size:23px;margin-top:16px">Reviews at the happiest moment, then offers, new menus and events.</div>
+      </div>
+      <div class="card-d" data-in="1.7" data-y="60" style="flex:1;padding:44px 40px;height:440px">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5h4a1.5 1.5 0 010 3h-3"/></svg></div>
+        <div class="num" style="font-size:24px;margin-top:40px">03</div>
+        <div class="serif" style="font-size:40px;margin-top:10px;min-height:100px;line-height:1.2">Reward the visit</div>
+        <div class="p" style="font-size:23px;margin-top:16px">Coins under your own brand, earned and burned in a tap.</div>
+      </div>
+      <div class="card-d" data-in="2.05" data-y="60" style="flex:1;padding:44px 40px;height:440px">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19h4v-5h4V9h4V5h4"/></svg></div>
+        <div class="num" style="font-size:24px;margin-top:40px">04</div>
+        <div class="serif" style="font-size:40px;margin-top:10px;min-height:100px;line-height:1.2">Build the habit</div>
+        <div class="p" style="font-size:23px;margin-top:16px">Points and tiers turn a good visit into the next one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 JOURNEY -->
+<section class="scene light" data-dur="7.5" id="journey">
+  <div class="glow" data-drift="1" style="width:1300px;height:1300px;left:900px;top:-200px"></div>
+  <div class="stage">
+    <div class="abs" style="left:150px;top:200px;width:900px">
+      <div class="eyebrow" data-in="0.1">The journey</div>
+      <h2 data-in="0.3" style="margin-top:22px">Just scan.<br>Everything is in place.</h2>
+      <div style="margin-top:64px">
+        <div class="step row" data-in="0.9" style="gap:28px;align-items:center;padding:22px 28px;border-radius:22px">
+          <div class="dot serif" style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px">1</div>
+          <div><div style="font-size:32px;font-weight:600">Scan the QR</div><div class="p" style="font-size:22px">The bill and the offer to join open together.</div></div>
+        </div>
+        <div class="step row" data-in="1.1" style="gap:28px;align-items:center;padding:22px 28px;border-radius:22px;margin-top:10px">
+          <div class="dot serif" style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px">2</div>
+          <div><div style="font-size:32px;font-weight:600">Sign up</div><div class="p" style="font-size:22px">Tap Join, enter the code, done.</div></div>
+        </div>
+        <div class="step row" data-in="1.3" style="gap:28px;align-items:center;padding:22px 28px;border-radius:22px;margin-top:10px">
+          <div class="dot serif" style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px">3</div>
+          <div><div style="font-size:32px;font-weight:600">Earn and redeem instantly</div><div class="p" style="font-size:22px">Coins land on the bill in front of them, then they pay as usual.</div></div>
+        </div>
+      </div>
+    </div>
+    <img src="assets/phone.jpg" data-in="0.4" data-y="160" data-d="1.1" class="abs" style="left:1210px;top:70px;height:950px;mix-blend-mode:multiply">
+    <div class="abs pill" data-in="5.0" data-y="20" data-pop="1" style="left:1090px;top:560px;background:var(--ink);color:var(--cream);box-shadow:0 18px 40px rgba(0,0,0,.25);font-size:26px;padding:18px 30px">
+      <span style="width:34px;height:34px;border-radius:50%;background:var(--copper);display:inline-flex;align-items:center;justify-content:center;font-family:Gelasio;font-size:20px;color:var(--ink)">B</span>
+      +100 coins earned
+    </div>
+  </div>
+</section>
+
+<!-- 5 PROFILE -->
+<section class="scene dark" data-dur="7.5" id="profile">
+  <div class="glow" data-drift="-1" style="width:1300px;height:1300px;left:-300px;top:-300px"></div>
+  <div class="stage">
+    <div class="abs" style="left:140px;top:250px;width:720px">
+      <div class="eyebrow" data-in="0.1">History &amp; insights</div>
+      <h2 data-in="0.3" style="margin-top:22px">The table stops being anonymous.</h2>
+      <div class="p" data-in="0.8" style="margin-top:32px">When a member scans, your host and your floor see the same profile the dashboard does: who they are, what they love, what they told you last time.</div>
+    </div>
+    <div class="abs card-l" data-in="0.6" data-y="80" data-d="0.9" style="left:960px;top:150px;width:820px;padding:44px;color:var(--ink)">
+      <div class="row" style="align-items:center;gap:24px">
+        <div style="width:88px;height:88px;border-radius:50%;background:#F3E3D2;color:#9A5A26;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:30px">LH</div>
+        <div style="flex:1">
+          <div class="row" style="align-items:center;gap:14px"><span style="font-size:36px;font-weight:600">Layla H.</span>
+            <span class="pill" style="background:var(--ink);color:var(--copper2);font-size:18px;padding:6px 16px">Elite</span>
+            <span class="pill" style="background:#E5F2E8;color:#2F7A46;font-size:18px;padding:6px 16px">Top 3% spend</span></div>
+          <div class="muted" style="font-size:20px;margin-top:6px">Member since Mar 2026 · Table 12 · seated 7:04 PM</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:36px;border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l);padding:28px 0">
+        <div style="flex:1"><div class="muted" style="font-size:16px;letter-spacing:.16em;font-weight:600">VISITS</div><div class="serif" style="font-size:56px;margin-top:6px"><span data-count="27" data-cin="1.3"></span></div></div>
+        <div style="flex:1.4"><div class="muted" style="font-size:16px;letter-spacing:.16em;font-weight:600">LIFETIME SPEND</div><div class="serif" style="font-size:56px;margin-top:6px"><span data-count="9340" data-pre="AED " data-cin="1.3"></span></div></div>
+        <div style="flex:1.2"><div class="muted" style="font-size:16px;letter-spacing:.16em;font-weight:600">COIN BALANCE</div><div class="serif copper" style="font-size:56px;margin-top:6px"><span data-count="2071" data-cin="1.3"></span></div></div>
+      </div>
+      <div class="muted" style="font-size:16px;letter-spacing:.16em;font-weight:600;margin-top:28px">GUEST INSIGHTS</div>
+      <div class="row" style="gap:16px;margin-top:16px">
+        <div data-in="2.6" data-y="20" style="flex:1;background:#F4F1EC;border-radius:18px;padding:20px 22px;font-size:22px;line-height:1.35">Always orders sparkling water with lemon</div>
+        <div data-in="3.0" data-y="20" style="flex:1;background:#F4F1EC;border-radius:18px;padding:20px 22px;font-size:22px;line-height:1.35">Ordered the almond croissant 5 times</div>
+      </div>
+      <div data-in="3.7" data-y="20" class="row" style="margin-top:16px;background:#FBEBDC;border-radius:18px;padding:20px 22px;font-size:22px;line-height:1.35;gap:14px;align-items:center">
+        <span style="font-size:26px">★</span><span>Two visits from Elite renewal. Worth a dessert on the house tonight.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 COINS -->
+<section class="scene light" data-dur="6.5" id="coins">
+  <div class="glow" data-drift="1" style="width:1200px;height:1200px;right:-300px;top:-400px"></div>
+  <div class="stage">
+    <div class="abs" style="left:140px;top:130px;right:140px">
+      <div class="eyebrow" data-in="0.1">Your own coins</div>
+      <h2 data-in="0.3" style="margin-top:22px">Real, spendable value.</h2>
+    </div>
+    <div class="abs row" style="left:140px;right:140px;top:400px;gap:32px">
+      <div data-in="0.8" data-y="50" style="flex:1;background:var(--ink);color:var(--cream);border-radius:28px;padding:44px">
+        <div class="serif copper" style="font-size:120px;line-height:1">1 : 1</div>
+        <div class="p" style="font-size:26px;margin-top:20px;color:var(--muted-d)">1 coin for every AED spent</div>
+      </div>
+      <div data-in="1.1" data-y="50" style="flex:1;background:var(--ink);color:var(--cream);border-radius:28px;padding:44px">
+        <div class="serif copper" style="font-size:120px;line-height:1">20 = 1</div>
+        <div class="p" style="font-size:26px;margin-top:20px;color:var(--muted-d)">20 coins come off the bill as AED 1</div>
+      </div>
+      <div data-in="1.4" data-y="50" style="flex:1;background:var(--ink);color:var(--cream);border-radius:28px;padding:44px">
+        <div class="serif copper" style="font-size:120px;line-height:1">All</div>
+        <div class="p" style="font-size:26px;margin-top:20px;color:var(--muted-d)">One balance across every outlet</div>
+      </div>
+    </div>
+    <div class="abs row" style="left:140px;right:140px;top:770px;gap:32px">
+      <div class="card-l" data-in="2.4" data-y="30" style="flex:1;padding:30px 36px"><div class="eyebrow" style="font-size:16px">Money off</div><div style="font-size:26px;font-weight:600;margin-top:10px">Straight off the bill at checkout</div></div>
+      <div class="card-l" data-in="2.7" data-y="30" style="flex:1;padding:30px 36px"><div class="eyebrow" style="font-size:16px">Vouchers</div><div style="font-size:26px;font-weight:600;margin-top:10px">Experiences on the house</div></div>
+      <div class="card-l" data-in="3.0" data-y="30" style="flex:1;padding:30px 36px"><div class="eyebrow" style="font-size:16px">Gift cards</div><div style="font-size:26px;font-weight:600;margin-top:10px">Value to bank and share</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 TIERS -->
+<section class="scene dark" data-dur="7.5" id="tiers">
+  <div class="glow" data-drift="-1" style="width:1400px;height:1400px;right:-400px;bottom:-700px"></div>
+  <div class="stage">
+    <div class="abs" style="left:140px;top:110px;right:140px">
+      <div class="eyebrow" data-in="0.1">The tier journey</div>
+      <h2 data-in="0.3" style="margin-top:22px">Earn faster the more they visit.</h2>
+    </div>
+    <div class="abs row" style="left:140px;right:140px;bottom:150px;gap:28px;align-items:flex-end;height:640px">
+      <!-- bars -->
+      <div class="tier" style="flex:1"><div class="tl" data-in="0.9"><div class="serif" style="font-size:34px">Guest</div><div class="muted" style="font-size:20px">0+ visits</div></div>
+        <div class="bar" data-grow="0.8" style="height:200px;background:#2A231D"><div class="rate">1×</div><div class="sub">coins per AED</div></div></div>
+      <div class="tier" style="flex:1"><div class="tl" data-in="1.1"><div class="serif" style="font-size:34px">Member</div><div class="muted" style="font-size:20px">3+ visits</div></div>
+        <div class="bar" data-grow="1.0" style="height:270px;background:#3A2D22"><div class="rate">1.25×</div><div class="sub">+250 coin entry bonus</div></div></div>
+      <div class="tier" style="flex:1"><div class="tl" data-in="1.3"><div class="serif" style="font-size:34px">Prime</div><div class="muted" style="font-size:20px">6+ visits</div></div>
+        <div class="bar" data-grow="1.2" style="height:340px;background:#5A3D26"><div class="rate">1.5×</div><div class="sub">+400 coin entry bonus</div></div></div>
+      <div class="tier" style="flex:1"><div class="tl" data-in="1.5"><div class="serif" style="font-size:34px">Elite</div><div class="muted" style="font-size:20px">15+ visits</div></div>
+        <div class="bar" data-grow="1.4" style="height:420px;background:#8A552C"><div class="rate">2×</div><div class="sub">+500 coin entry bonus</div><div class="perk" data-in="3.0">Dessert every 2nd visit</div></div></div>
+      <div class="tier" style="flex:1"><div class="tl" data-in="1.7"><div class="serif" style="font-size:34px">Patron</div><div class="muted" style="font-size:20px">30+ visits</div></div>
+        <div class="bar" data-grow="1.6" style="height:500px;background:var(--copper)"><div class="rate" style="color:var(--ink)">2.5×</div><div class="sub" style="color:rgba(22,19,15,.75)">+600 coin entry bonus</div><div class="perk" data-in="3.3" style="background:var(--ink);color:var(--copper2)">Dessert every visit</div></div></div>
+    </div>
+    <div class="abs p" data-in="3.8" style="left:140px;bottom:70px;font-size:24px">The redemption rate stays 20 coins = AED 1 at every tier. Names and thresholds are yours to set.</div>
+  </div>
+  <style>
+    #tiers .tier{display:flex;flex-direction:column;justify-content:flex-end}
+    #tiers .tl{margin-bottom:18px}
+    #tiers .bar{border-radius:24px 24px 6px 6px;padding:28px;transform-origin:50% 100%;position:relative}
+    #tiers .rate{font-family:Gelasio,Georgia,serif;font-size:64px;color:var(--copper2);line-height:1}
+    #tiers .sub{font-size:19px;color:var(--muted-d);margin-top:10px}
+    #tiers .perk{position:absolute;left:28px;right:28px;bottom:26px;background:rgba(22,19,15,.55);color:var(--copper2);border-radius:14px;padding:12px 14px;font-size:18px;font-weight:600}
+  </style>
+</section>
+
+<!-- 8 REDEMPTION -->
+<section class="scene light" data-dur="6.8" id="redeem">
+  <div class="glow" data-drift="1" style="width:1200px;height:1200px;left:800px;top:-300px"></div>
+  <div class="stage">
+    <div class="abs" style="left:150px;top:290px;width:820px">
+      <div class="eyebrow" data-in="0.1">Simple redemption</div>
+      <h2 data-in="0.3" style="margin-top:22px">One swipe, straight off the bill.</h2>
+      <div class="p" data-in="0.8" style="margin-top:32px">No codes, no vouchers, no barcodes. Same payment methods, same settlement, same receipt.</div>
+    </div>
+    <div class="abs card-l" data-in="0.5" data-y="80" data-d="0.9" style="left:1120px;top:110px;width:660px;padding:44px">
+      <div class="row" style="justify-content:space-between;align-items:center"><div style="font-size:30px;font-weight:600">BKRY</div><div class="muted" style="font-size:20px">Table 12</div></div>
+      <div style="margin-top:28px;font-size:23px;line-height:2.1">
+        <div class="row" style="justify-content:space-between"><span>Almond croissant ×2</span><span>AED 46.00</span></div>
+        <div class="row" style="justify-content:space-between"><span>Flat white ×2</span><span>AED 38.00</span></div>
+        <div class="row" style="justify-content:space-between"><span>Shakshuka</span><span>AED 62.00</span></div>
+        <div class="row" style="justify-content:space-between"><span>Sparkling water</span><span>AED 40.00</span></div>
+      </div>
+      <div class="row" style="justify-content:space-between;border-top:1px solid var(--line-l);margin-top:14px;padding-top:18px;font-size:23px" ><span class="muted">Subtotal</span><span>AED 186.00</span></div>
+      <div class="row" style="margin-top:24px;background:#FBEBDC;border-radius:20px;padding:22px;align-items:center;gap:18px">
+        <span style="width:48px;height:48px;border-radius:50%;background:var(--copper);display:inline-flex;align-items:center;justify-content:center;font-family:Gelasio;font-size:26px;color:var(--paper)">B</span>
+        <div style="flex:1"><div style="font-size:23px;font-weight:600">2,071 BTC Coins</div><div class="muted" style="font-size:19px">Worth AED 103.55</div></div>
+        <div id="tog" style="width:84px;height:48px;border-radius:999px;background:#CFC6BB;position:relative"><div id="knob" style="position:absolute;top:5px;left:5px;width:38px;height:38px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2)"></div></div>
+      </div>
+      <div id="disc" class="row" style="justify-content:space-between;margin-top:20px;font-size:23px;color:#2F7A46;opacity:0"><span>Coins applied</span><span>−AED 103.55</span></div>
+      <div class="row" style="justify-content:space-between;margin-top:16px;align-items:baseline"><span style="font-size:26px;font-weight:600">Total</span><span class="serif" style="font-size:52px">AED <span id="total">186.00</span></span></div>
+      <div id="paybtn" style="margin-top:26px;background:var(--ink);color:var(--cream);border-radius:18px;padding:24px;text-align:center;font-size:26px;font-weight:600">Pay AED <span id="total2">186.00</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 DASHBOARD -->
+<section class="scene dark" data-dur="7.8" id="dash">
+  <div class="glow" data-drift="1" style="width:1300px;height:1300px;left:-400px;bottom:-700px"></div>
+  <div class="stage">
+    <div class="abs" style="left:140px;top:100px;right:140px">
+      <div class="eyebrow" data-in="0.1">Your side of it</div>
+      <h2 data-in="0.3" style="margin-top:22px;font-size:68px">The whole club, in the dashboard you already open.</h2>
+    </div>
+    <div class="abs row" style="left:140px;right:140px;top:360px;gap:22px">
+      <div class="card-d tile" data-in="0.8" data-y="40"><div class="tk">Known guests</div><div class="tv"><span data-count="4281" data-cin="1.0"></span></div><div class="td">+18%</div></div>
+      <div class="card-d tile" data-in="0.95" data-y="40"><div class="tk">Repeat visit rate</div><div class="tv"><span data-count="67" data-suf="%" data-cin="1.1"></span></div><div class="td">+11pt</div></div>
+      <div class="card-d tile" data-in="1.1" data-y="40"><div class="tk">Reviews</div><div class="tv"><span data-count="4.7" data-dec="1" data-suf="★" data-cin="1.2"></span></div><div class="td" style="color:var(--muted-d)">1,346 collected</div></div>
+      <div class="card-d tile" data-in="1.25" data-y="40"><div class="tk">Coins redeemed</div><div class="tv"><span data-count="404" data-suf="k" data-cin="1.3"></span></div><div class="td">+24%</div></div>
+      <div class="tile" data-in="1.4" data-y="40" style="flex:1.35;background:var(--copper);color:var(--ink);border-radius:28px"><div class="tk" style="color:rgba(22,19,15,.7)">Revenue from members</div><div class="tv" style="color:var(--ink)"><span data-count="928" data-pre="AED " data-suf="k" data-cin="1.4"></span></div><div class="td" style="color:rgba(22,19,15,.7)">last 30 days</div></div>
+    </div>
+    <div class="abs card-d" data-in="1.8" data-y="40" style="left:140px;top:640px;width:1000px;height:380px;padding:30px 40px">
+      <div class="row" style="justify-content:space-between"><div class="tk">New members · last 6 months</div><div class="pill" data-in="4.0" style="background:var(--copper);color:var(--ink);font-size:18px;padding:6px 16px;font-weight:600">Jul · 892 new</div></div>
+      <svg width="920" height="270" viewBox="0 0 920 270" style="margin-top:6px">
+        <defs><linearGradient id="ag" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#D68A4A" stop-opacity=".45"/><stop offset="1" stop-color="#D68A4A" stop-opacity="0"/></linearGradient>
+        <clipPath id="areaclip"><rect id="cliprect" x="0" y="0" width="0" height="270"/></clipPath></defs>
+        <g stroke="#3A322A" stroke-width="1"><line x1="0" x2="920" y1="60" y2="60"/><line x1="0" x2="920" y1="130" y2="130"/><line x1="0" x2="920" y1="200" y2="200"/></g>
+        <g clip-path="url(#areaclip)">
+          <path d="M10,205 C100,198 140,190 190,182 S330,160 375,150 S500,138 560,120 S700,90 745,72 S860,30 905,18 L905,230 L10,230 Z" fill="url(#ag)"/>
+          <path d="M10,205 C100,198 140,190 190,182 S330,160 375,150 S500,138 560,120 S700,90 745,72 S860,30 905,18" fill="none" stroke="#E3B183" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <g fill="#A99E92" font-size="17" font-family="Inter"><text x="10" y="262">Feb</text><text x="190" y="262">Mar</text><text x="375" y="262">Apr</text><text x="560" y="262">May</text><text x="745" y="262">Jun</text><text x="872" y="262">Jul</text></g>
+      </svg>
+    </div>
+    <div class="abs card-d" data-in="2.1" data-y="40" style="left:1170px;top:640px;width:610px;height:380px;padding:30px 40px">
+      <div class="tk">Campaigns · July</div>
+      <div class="camp"><div class="row cr"><span>Win-back · lapsed 60d</span><span class="copper">218 returned</span></div><div class="track"><div class="fill" data-grow="2.6" data-axis="x" style="width:100%"></div></div></div>
+      <div class="camp"><div class="row cr"><span>New menu launch</span><span class="copper">164 visits</span></div><div class="track"><div class="fill" data-grow="2.8" data-axis="x" style="width:75%"></div></div></div>
+      <div class="camp"><div class="row cr"><span>Quiet Tuesday offer</span><span class="copper">91 visits</span></div><div class="track"><div class="fill" data-grow="3.0" data-axis="x" style="width:42%"></div></div></div>
+      <div class="muted" data-in="3.6" style="font-size:19px;margin-top:26px">473 returning visits · AED 132k in bills</div>
+    </div>
+  </div>
+  <style>
+    #dash .tile{flex:1;padding:28px 30px}
+    #dash .tk{font-size:17px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted-d)}
+    #dash .tv{font-family:Gelasio,Georgia,serif;font-size:58px;margin-top:12px;color:var(--cream)}
+    #dash .td{font-size:19px;color:#6FC48A;margin-top:6px;font-weight:600}
+    #dash .camp{margin-top:26px}
+    #dash .cr{justify-content:space-between;font-size:22px}
+    #dash .track{height:10px;border-radius:99px;background:#2E2720;margin-top:12px;overflow:hidden}
+    #dash .fill{height:100%;border-radius:99px;background:var(--copper);transform-origin:0 50%}
+  </style>
+</section>
+
+<!-- 10 WIN-BACK -->
+<section class="scene light" data-dur="7.5" id="winback">
+  <div class="glow" data-drift="-1" style="width:1200px;height:1200px;right:-200px;bottom:-500px"></div>
+  <div class="stage">
+    <div class="abs" style="left:150px;top:170px;width:840px">
+      <div class="eyebrow" data-in="0.1">Members · retention</div>
+      <h2 data-in="0.3" style="margin-top:22px">Know who’s slipping, and bring them back.</h2>
+      <div style="margin-top:48px">
+        <div class="row wb" data-in="0.9"><span class="num">01</span><div><b>Win back the lapsed</b><div class="muted">Coins or a voucher, with an expiry.</div></div></div>
+        <div class="row wb" data-in="1.1"><span class="num">02</span><div><b>Fill the quiet nights</b><div class="muted">A Tuesday offer to everyone near one outlet.</div></div></div>
+        <div class="row wb" data-in="1.3"><span class="num">03</span><div><b>Announce what’s new</b><div class="muted">New menus, specials and events, straight to members.</div></div></div>
+      </div>
+    </div>
+    <div class="abs card-l" data-in="0.5" data-y="80" data-d="0.9" style="left:1030px;top:150px;width:750px;padding:44px">
+      <div class="row" style="justify-content:space-between;align-items:center"><div style="font-size:30px;font-weight:600">Broadcast an offer</div><div id="send" style="background:var(--copper);color:#fff;border-radius:14px;padding:12px 26px;font-size:21px;font-weight:600">Send now</div></div>
+      <div class="muted" style="font-size:16px;letter-spacing:.16em;font-weight:600;margin-top:34px">AUDIENCE</div>
+      <div class="row" style="gap:12px;margin-top:14px;flex-wrap:wrap"><span class="chip on">Lapsed 60+ days · 1,204</span><span class="chip">High spenders</span><span class="chip">Weekday only</span></div>
+      <div class="muted" style="font-size:16px;letter-spacing:.16em;font-weight:600;margin-top:30px">MESSAGE</div>
+      <div style="margin-top:14px;border:1.5px solid #E6C9AC;border-radius:18px;padding:22px;font-size:24px;line-height:1.4;min-height:126px"><span id="typed"></span><span id="caret" style="display:inline-block;width:2px;height:28px;background:var(--copper);vertical-align:-5px;margin-left:2px"></span></div>
+      <div class="row" style="margin-top:26px;gap:16px">
+        <div style="flex:1"><div class="muted" style="font-size:15px;letter-spacing:.14em;font-weight:600">ATTACHED</div><div style="font-size:24px;font-weight:600;margin-top:6px">300 coins</div></div>
+        <div style="flex:1"><div class="muted" style="font-size:15px;letter-spacing:.14em;font-weight:600">EXPIRES</div><div style="font-size:24px;font-weight:600;margin-top:6px">In 30 days</div></div>
+        <div style="flex:1"><div class="muted" style="font-size:15px;letter-spacing:.14em;font-weight:600">REACH</div><div style="font-size:24px;font-weight:600;margin-top:6px">1,204 members</div></div>
+      </div>
+      <div data-in="4.3" data-y="20" class="row" style="margin-top:28px;background:#E5F2E8;color:#245F37;border-radius:18px;padding:20px 24px;font-size:22px;gap:14px;align-items:center">
+        <span style="width:30px;height:30px;border-radius:50%;background:#3F9A5B;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:18px">✓</span>
+        <span><b><span data-count="218" data-cin="4.4"></span> returned</b> · AED <span data-count="62" data-cin="4.4"></span>k in bills</span>
+      </div>
+    </div>
+  </div>
+  <style>
+    #winback .chip{font-size:19px;padding:9px 18px}
+    #winback .wb{gap:26px;align-items:flex-start;margin-top:26px;font-size:28px}
+    #winback .wb .num{font-size:30px;width:50px}
+    #winback .wb .muted{font-size:22px;margin-top:6px}
+  </style>
+</section>
+
+<!-- 11 PRICING -->
+<section class="scene dark" data-dur="6.2" id="price">
+  <div class="glow" data-drift="1" style="width:1300px;height:1300px;right:-300px;top:-500px"></div>
+  <div class="stage">
+    <div class="abs" style="left:140px;top:160px;right:140px">
+      <div class="eyebrow" data-in="0.1">Commercials</div>
+      <h2 data-in="0.3" style="margin-top:22px">You only pay when it works.</h2>
+      <div class="p" data-in="0.7" style="margin-top:24px;max-width:1300px">No setup fee, no monthly cost. The only costs are the messages you send and the value your guests actually earn and spend.</div>
+    </div>
+    <div class="abs row" style="left:140px;right:140px;top:560px;gap:28px">
+      <div data-in="1.2" data-y="50" style="flex:1;background:var(--copper);color:var(--ink);border-radius:28px;padding:40px;height:340px"><div class="pk" style="color:rgba(22,19,15,.7)">To start</div><div class="pv">AED 0</div><div class="pd" style="color:rgba(22,19,15,.75)">No setup fee. No monthly platform cost.</div></div>
+      <div class="card-d" data-in="1.45" data-y="50" style="flex:1;padding:40px;height:340px"><div class="pk">Broadcast</div><div class="pv copper">AED 1</div><div class="pd">Per WhatsApp message sent</div></div>
+      <div class="card-d" data-in="1.7" data-y="50" style="flex:1;padding:40px;height:340px"><div class="pk">Earn</div><div class="pv copper">2%</div><div class="pd">Commission on each earn transaction</div></div>
+      <div class="card-d" data-in="1.95" data-y="50" style="flex:1;padding:40px;height:340px"><div class="pk">Redeem</div><div class="pv copper">3%</div><div class="pd">Commission on redemptions, coins and offers</div></div>
+    </div>
+  </div>
+  <style>
+    #price .pk{font-size:18px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--muted-d)}
+    #price .pv{font-family:Gelasio,Georgia,serif;font-size:100px;margin-top:34px;line-height:1}
+    #price .pd{font-size:23px;line-height:1.4;margin-top:28px;color:var(--muted-d)}
+  </style>
+</section>
+
+<!-- 12 OUTRO -->
+<section class="scene dark" data-dur="6.8" id="outro">
+  <div class="glow" data-drift="1" style="width:1500px;height:1500px;left:-300px;top:-700px"></div>
+  <div class="glow" data-drift="-1" style="width:1200px;height:1200px;right:-300px;bottom:-600px"></div>
+  <div class="stage">
+    <div class="abs" style="left:0;right:0;top:250px;text-align:center">
+      <div class="eyebrow" data-in="0.2">Go live</div>
+      <h1 data-in="0.5" data-y="40" style="font-size:120px;line-height:1.1;margin-top:28px">Turn your guests<br>into <span class="copper it">your club.</span></h1>
+      <div class="p" data-in="1.6" style="margin-top:44px;font-size:30px">Live across every location · Nothing to install · Ready in days</div>
+      <div data-in="2.4" data-y="20" style="margin-top:56px"><span class="pill" style="background:var(--cream);color:var(--ink);font-size:28px;padding:18px 40px;font-weight:600"><span>my<span class="copper">club</span> is now live on qlub</span></span></div>
+    </div>
+  </div>
+</section>
+
+<div id="fade" class="abs" style="inset:0;background:#000;opacity:0;pointer-events:none"></div>
+</div>
+
+<script>
+const scenes=[...document.querySelectorAll('.scene')];
+const XF=0.6; // crossfade seconds
+let acc=0;
+for(const s of scenes){s._start=acc;s._dur=parseFloat(s.dataset.dur);acc+=s._dur;}
+window.TOTAL=acc;
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eio=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+const eback=p=>{const c=1.70158,c3=c+1;return 1+c3*Math.pow(p-1,3)+c*Math.pow(p-1,2);};
+const fmt=(v,dec)=>v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+
+const hooks={
+  journey(l,s){
+    s.querySelectorAll('.step').forEach((el,i)=>{
+      const on=l>=1.7+i*1.3;
+      el.style.background=on?'#FBFAF7':'transparent';
+      el.style.boxShadow=on?'0 14px 40px rgba(40,25,10,.10)':'none';
+      const d=el.querySelector('.dot');
+      d.style.background=on?'#D68A4A':'#E8E1D8'; d.style.color=on?'#fff':'#6E655C';
+    });
+  },
+  redeem(l,s){
+    const p=eio(clamp((l-2.3)/0.35));
+    s.querySelector('#knob').style.left=(5+36*p)+'px';
+    s.querySelector('#tog').style.background=p>.5?'#D68A4A':'#CFC6BB';
+    s.querySelector('#disc').style.opacity=eo(clamp((l-2.5)/0.4));
+    const q=eo(clamp((l-2.6)/1.0));
+    const v=fmt(186-103.55*q,2);
+    s.querySelector('#total').textContent=v; s.querySelector('#total2').textContent=v;
+    const press=l>4.6&&l<4.9?0.96:1;
+    s.querySelector('#paybtn').style.transform=`scale(${press})`;
+  },
+  dash(l,s){
+    s.querySelector('#cliprect').setAttribute('width',920*eio(clamp((l-2.0)/1.8)));
+  },
+  winback(l,s){
+    const msg='We miss you. Here’s 300 coins on us, good on any bill this month.';
+    const n=Math.floor(msg.length*clamp((l-1.2)/2.2));
+    s.querySelector('#typed').textContent=msg.slice(0,n);
+    s.querySelector('#caret').style.opacity=(l>3.6)?0:((Math.floor(l*2.5)%2===0||n<msg.length)?1:0);
+    const b=s.querySelector('#send');
+    b.style.transform=`scale(${l>3.7&&l<3.95?0.92:1})`;
+    b.textContent=l>=3.95?'Sent ✓':'Send now';
+    b.style.background=l>=3.95?'#3F9A5B':'#D68A4A';
+  }
+};
+
+window.render=function(t){
+  scenes.forEach((s,i)=>{
+    const l=t-s._start;
+    const first=i===0, last=i===scenes.length-1;
+    const vis=(first?l>=0:l>=-XF)&&(last?true:l<s._dur);
+    s.style.visibility=vis?'visible':'hidden';
+    if(!vis){s.style.opacity=0;return;}
+    s.style.opacity=first?1:eio(clamp((l+XF)/XF));
+    s.style.zIndex=i;
+    // subtle push-in on the stage
+    const stage=s.querySelector('.stage');
+    const sc=1.035-0.035*eo(clamp((l+XF)/(1.6)));
+    stage.style.transform=`scale(${sc})`;
+    s.querySelectorAll('.glow').forEach(g=>{
+      const d=parseFloat(g.dataset.drift||1);
+      g.style.transform=`translate(${d*Math.sin(t*0.35)*60}px,${d*Math.cos(t*0.27)*40}px)`;
+    });
+    s.querySelectorAll('[data-in]').forEach(el=>{
+      const p=clamp((l-parseFloat(el.dataset.in))/parseFloat(el.dataset.d||0.75));
+      const e=el.dataset.pop?eback(p):eo(p);
+      el.style.opacity=clamp(p*1.6);
+      const y=parseFloat(el.dataset.y||30);
+      el.style.transform=el.dataset.pop?`translateY(${(1-e)*y}px) scale(${0.8+0.2*e})`:`translateY(${(1-e)*y}px)`;
+    });
+    s.querySelectorAll('[data-grow]').forEach(el=>{
+      const e=eo(clamp((l-parseFloat(el.dataset.grow))/0.9));
+      el.style.transform=el.dataset.axis==='x'?`scaleX(${e})`:`scaleY(${e})`;
+      if(el.dataset.axis!=='x') [...el.children].forEach(c=>{ if(!c.dataset.in) c.style.opacity=clamp((e-0.6)/0.4); });
+    });
+    s.querySelectorAll('[data-count]').forEach(el=>{
+      const v=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||0);
+      const e=eo(clamp((l-parseFloat(el.dataset.cin||0))/parseFloat(el.dataset.cd||1.4)));
+      el.textContent=(el.dataset.pre||'')+fmt(v*e,dec)+(el.dataset.suf||'');
+    });
+    if(hooks[s.id]) hooks[s.id](l,s);
+  });
+  document.getElementById('fade').style.opacity=Math.max(clamp(1-t/0.6), clamp((t-(TOTAL-1.0))/1.0));
+};
+render(parseFloat(new URLSearchParams(location.search).get('t')||'2'));
+</script>
+</body>
+</html>
