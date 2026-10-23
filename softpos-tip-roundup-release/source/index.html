@@ -19,7 +19,7 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
 .mlabel{font-size:30px;font-weight:600;color:#6B6480;margin-bottom:6px}
 
 /* cards */
-.card{position:absolute;top:320px;width:700px;height:460px;background:#fff;border:2px solid #E7E1F0;border-radius:36px;padding:56px;box-shadow:0 30px 80px -40px rgba(75,10,133,.35)}
+.card{position:absolute;top:290px;width:700px;height:545px;background:#fff;border:2px solid #E7E1F0;border-radius:36px;padding:56px;box-shadow:0 30px 80px -40px rgba(75,10,133,.35)}
 .card .tag{font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7A00D6}
 .card h3{font-size:64px;font-weight:800;letter-spacing:-.02em;margin:10px 0 14px}
 .card p{font-size:30px;line-height:1.4;color:#4a435a}
@@ -33,6 +33,16 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
 .field small{display:block;font-size:20px;color:#6B6480}
 .field b{font-size:38px;font-variant-numeric:tabular-nums}
 .field span{font-size:26px;color:#7A00D6;font-weight:700}
+.tabs{display:flex;border-bottom:2px solid #E7E1F0;font-size:21px;font-weight:600;color:#6B6480}
+.tabs span{flex:1;text-align:center;padding:6px 0 10px}
+.tabs span.on{color:#7A00D6;border-bottom:4px solid #7A00D6;margin-bottom:-2px}
+.pinp{margin-top:18px;border:2px solid #7A00D6;border-radius:16px;padding:8px 20px}
+.pinp small{display:block;font-size:18px;color:#6B6480}
+.pinp b{font-size:34px;font-variant-numeric:tabular-nums}
+.sub{display:flex;justify-content:space-between;margin-top:14px;font-size:24px;color:#6B6480;font-variant-numeric:tabular-nums}
+.sub b{color:#231B33}
+#c2btn{position:relative;padding:6px 10px;border-radius:12px}
+#rip{position:absolute;left:50%;top:50%;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;background:#7A00D6;opacity:0}
 .caret{display:inline-block;width:3px;height:36px;background:#7A00D6;vertical-align:-4px;margin-left:3px}
 
 /* walkthrough */
@@ -101,8 +111,15 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
     </div>
     <div class="card" id="c2" style="left:1000px">
       <div class="tag">Option 2</div><h3>Total Field</h3>
-      <p>The guest types any total to charge. The rest becomes the tip.</p>
-      <div class="field"><div><small>Charge total</small><b id="c2v">S$35.05</b><i class="caret" id="c2c"></i></div><span>Enter amount ›</span></div>
+      <p>The guest taps <b>Enter amount</b>, then types the total to charge on the Custom page.</p>
+      <div style="position:relative;height:210px;margin-top:30px">
+        <div class="field" id="c2a" style="position:absolute;left:0;right:0;top:0;margin:0"><div><small>Charge total</small><b>S$35.05</b></div><span id="c2btn"><i id="rip"></i>Enter amount ›</span></div>
+        <div id="c2b" style="position:absolute;left:0;right:0;top:0;opacity:0">
+          <div class="tabs"><span>Custom Tip Amount</span><span class="on">Custom Payable Amount</span></div>
+          <div class="pinp"><small>Payable amount</small><b id="c2v">S$35.05</b><i class="caret" id="c2c"></i></div>
+          <div class="sub"><span>Bill amount <b>S$35.05</b></span><span>Tip amount <b id="c2tip">S$0.00</b></span></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -167,17 +184,17 @@ function set(el,o,dy=0,sc=1,dx=0){el.style.opacity=o;el.style.transform=(el.data
 ['s1logo','s7logo'].forEach(i=>$(i).dataset.base='translateX(-50%)');
 
 // Scene times (seconds)
-const S={s1:[0,4.6],s2:[4.6,10.6],s3:[10.6,16.4],s4:[16.4,44],s6:[44,52.4],s7:[52.4,58]};
-const DUR=58;
+const S={s1:[0,4.6],s2:[4.6,10.6],s3:[10.6,18.8],s4:[18.8,46.4],s6:[46.4,54.8],s7:[54.8,60.4]};
+const DUR=60.4;
 // Walkthrough steps: [start,end,image,caption, highlight box in 720x1600 screenshot px or null]
 const STEPS=[
- [16.4,20.6,0,0,[42,1266,407,108]],
- [20.6,24.4,1,1,null],
- [24.4,28.4,2,2,[24,1010,672,170]],
- [28.4,32.4,3,3,[30,1060,224,116]],
- [32.4,36.6,4,4,[36,680,652,150]],
- [36.6,40.2,5,5,[30,1000,660,172]],
- [40.2,44,6,6,[36,404,648,140]],
+ [18.8,23,0,0,[42,1266,407,108]],
+ [23,26.8,1,1,null],
+ [26.8,30.8,2,2,[24,1010,672,170]],
+ [30.8,34.8,3,3,[30,1060,224,116]],
+ [34.8,39,4,4,[36,680,652,150]],
+ [39,42.6,5,5,[30,1000,660,172]],
+ [42.6,46.4,6,6,[36,404,648,140]],
 ];
 const SC=405/720;
 function hlBox(b){return {l:b[0]*SC,t:b[1]*SC,w:b[2]*SC,h:b[3]*SC}}
@@ -210,18 +227,24 @@ function render(t){
   set($('c1'),p(t,a3+.5,.7),(1-p(t,a3+.5,.7))*60);
   set($('c2'),p(t,a3+.9,.7),(1-p(t,a3+.9,.7))*60);
   $('cc1').classList.toggle('on',t>a3+2.2);
-  const typed=['S$35.05','S$4','S$40','S$40.','S$40.0','S$40.00'];
-  const ti=Math.floor(clamp((t-(a3+3.2))/0.25,0,5)); $('c2v').textContent=t<a3+3.2?typed[0]:typed[ti];
-  $('c2c').style.opacity=(t>a3+3&&Math.floor(t*2.5)%2)?1:0;
+  // Total Field: tap Enter amount, the Custom page opens on Custom Payable Amount, guest types the total
+  const tap=clamp((t-(a3+2.8))/.5); $('rip').style.opacity=tap>0&&tap<1?.35*(1-tap):0;
+  $('rip').style.transform=`scale(${.3+2.2*tap})`;
+  $('c2btn').style.background=tap>0&&tap<1?'#F3E8FF':'transparent';
+  const pg=p(t,a3+3.4,.5); set($('c2a'),1-pg,0,1,-60*pg); set($('c2b'),pg,0,1,60*(1-pg));
+  const typed=['S$35.05','S$','S$4','S$40','S$40.','S$40.0','S$40.00'];
+  const ti=Math.floor(clamp((t-(a3+4.3))/0.25,0,6)); $('c2v').textContent=typed[ti];
+  $('c2tip').textContent=ti==6?'S$4.95':'S$0.00'; $('c2tip').style.color=ti==6?'#1F7A45':'';
+  $('c2c').style.opacity=(t>a3+3.9&&Math.floor(t*2.5)%2)?1:0;
 
   // 4/5 walkthrough
   $('s4').style.opacity=win(t,...S.s4,.5);
   set($('phone'),p(t,S.s4[0]+.1,.8),(1-p(t,S.s4[0]+.1,.8))*80);
-  const isField=t>=36.6;
+  const isField=t>=STEPS[5][0];
   $('mode').style.opacity=p(t,S.s4[0]+.3,.5);
   $('mChips').classList.toggle('on',!isField); $('mField').classList.toggle('on',isField);
   $('dots').style.opacity=p(t,S.s4[0]+.3,.5);
-  [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>=STEPS[i][0]&&t<STEPS[i][1]||(i==6&&t>=44)));
+  [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>=STEPS[i][0]&&t<STEPS[i][1]||(i==6&&t>=S.s4[1])));
   STEPS.forEach((s,i)=>{
     const [a,b,img,cap]=s;
     const first=i==0,last=i==STEPS.length-1;

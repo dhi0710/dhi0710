@@ -1,16 +1,16 @@
 # Tip round-up on SoftPOS: release video
 
-`qlub-softpos-tip-roundup-release.mp4`: 58 s, 1920×1080, 30 fps, no audio.
+`qlub-softpos-tip-roundup-release.mp4`: 60 s, 1920×1080, 30 fps, no audio.
 
 | Time | Scene |
 |---|---|
 | 0:00 | Intro: qlub logo, "Tip round-up" |
 | 0:05 | Concept: S$35.55 bill rounds up to S$40.00, tip +S$4.45 |
-| 0:11 | Two styles: Chips and Total Field |
-| 0:16 | Chips walkthrough on device: bill, rate and tip, round-up row, 40.00 picked, success screen |
-| 0:37 | Total Field walkthrough: Charge total row, Custom Payable Amount |
-| 0:44 | Setup: Tip Round Up Options + Tip Round Up Bands, save and restart the app |
-| 0:52 | Outro |
+| 0:11 | Two styles: Chips, and Total Field (tap Enter amount, then type the total on the Custom Payable Amount tab) |
+| 0:19 | Chips walkthrough on device: bill, rate and tip, round-up row, 40.00 picked, success screen |
+| 0:39 | Total Field walkthrough: Charge total row, Custom Payable Amount |
+| 0:46 | Setup: Tip Round Up Options + Tip Round Up Bands, save and restart the app |
+| 0:55 | Outro |
 
 ## Re-render
 
