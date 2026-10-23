@@ -127,16 +127,14 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
   <div class="scene" id="s4">
     <div id="mode"><span id="mChips">Chips</span><span id="mField">Total Field</span></div>
     <div class="cap" id="cap0"><div class="k">Step 1 · Bill</div><h2>Open the bill as usual</h2><p>Nothing changes here. Staff tap <b>Pay full bill</b> and the tip screen opens.</p></div>
-    <div class="cap" id="cap1"><div class="k">Step 2 · Tip screen</div><h2>Rating and tip on one screen</h2><p>Staff enter the guest's rating. The usual tip tiles are still there: 5%, 10%, 15% and Custom.</p></div>
-    <div class="cap" id="cap2"><div class="k">Step 3 · Round-up</div><h2>Round the total up</h2><p>A new row under the tiles: <b>Or round the total up to</b>. Each chip shows the extra amount and its percentage.</p></div>
-    <div class="cap" id="cap3"><div class="k">Step 4 · Pick a total</div><h2>One tap, neat total</h2><p>Staff tap the total the guest asks for, here <b>40.00</b>. The total and the Confirm button change to S$40.00.</p></div>
-    <div class="cap" id="cap4"><div class="k">Step 5 · Paid</div><h2>Recorded as a tip</h2><p>The success screen splits it out: paid S$40.00, of which <b>S$4.45 is tip</b>.</p></div>
-    <div class="cap" id="cap5"><div class="k">Step 3 · Total Field</div><h2>Set the total to charge</h2><p>With Total Field, the row reads <b>Or set the total to charge</b>. It starts at the bill amount.</p></div>
-    <div class="cap" id="cap6"><div class="k">Step 4 · Custom page</div><h2>Type the total</h2><p>Staff tap <b>Enter amount</b> and type the total the guest wants to pay on <b>Custom Payable Amount</b>. <b>Tip amount</b> shows the difference.</p></div>
-    <div id="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="cap" id="cap2"><div class="k">Step 2 · Tip screen</div><h2>Round the total up</h2><p>Under the usual tip tiles, a new row: <b>Or round the total up to</b>. Each chip shows the extra amount and its percentage.</p></div>
+    <div class="cap" id="cap3"><div class="k">Step 3 · Pick a total</div><h2>One tap, neat total</h2><p>Staff tap the total the guest asks for, here <b>40.00</b>. The total and the Confirm button change to S$40.00.</p></div>
+    <div class="cap" id="cap4"><div class="k">Step 4 · Paid</div><h2>Recorded as a tip</h2><p>The success screen splits it out: paid S$40.00, of which <b>S$4.45 is tip</b>.</p></div>
+    <div class="cap" id="cap5"><div class="k">Step 2 · Total Field</div><h2>Set the total to charge</h2><p>With Total Field, the row reads <b>Or set the total to charge</b>. It starts at the bill amount.</p></div>
+    <div class="cap" id="cap6"><div class="k">Step 3 · Custom page</div><h2>Type the total</h2><p>Staff tap <b>Enter amount</b> and type the total the guest wants to pay on <b>Custom Payable Amount</b>. <b>Tip amount</b> shows the difference.</p></div>
+    <div id="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div id="phone"><div id="screen">
       <img id="i0" src="assets/Screenshot_20261023-092718.png">
-      <img id="i1" src="assets/Screenshot_20261023-092727.png">
       <img id="i2" src="assets/Screenshot_20261023-092737.png">
       <img id="i3" src="assets/Screenshot_20261023-092744.png">
       <img id="i4" src="assets/Screenshot_20261023-092804.png">
@@ -184,17 +182,16 @@ function set(el,o,dy=0,sc=1,dx=0){el.style.opacity=o;el.style.transform=(el.data
 ['s1logo','s7logo'].forEach(i=>$(i).dataset.base='translateX(-50%)');
 
 // Scene times (seconds)
-const S={s1:[0,4.6],s2:[4.6,10.6],s3:[10.6,18.8],s4:[18.8,46.4],s6:[46.4,54.8],s7:[54.8,60.4]};
-const DUR=60.4;
+const S={s1:[0,4.6],s2:[4.6,10.6],s3:[10.6,18.8],s4:[18.8,42.6],s6:[42.6,51],s7:[51,56.6]};
+const DUR=56.6;
 // Walkthrough steps: [start,end,image,caption, highlight box in 720x1600 screenshot px or null]
 const STEPS=[
  [18.8,23,0,0,[42,1266,407,108]],
- [23,26.8,1,1,null],
- [26.8,30.8,2,2,[24,1010,672,170]],
- [30.8,34.8,3,3,[30,1060,224,116]],
- [34.8,39,4,4,[36,680,652,150]],
- [39,42.6,5,5,[30,1000,660,172]],
- [42.6,46.4,6,6,[36,404,648,140]],
+ [23,27,2,2,[24,1010,672,170]],
+ [27,31,3,3,[30,1060,224,116]],
+ [31,35.2,4,4,[36,680,652,150]],
+ [35.2,38.8,5,5,[30,1000,660,172]],
+ [38.8,42.6,6,6,[36,404,648,140]],
 ];
 const SC=405/720;
 function hlBox(b){return {l:b[0]*SC,t:b[1]*SC,w:b[2]*SC,h:b[3]*SC}}
@@ -240,11 +237,11 @@ function render(t){
   // 4/5 walkthrough
   $('s4').style.opacity=win(t,...S.s4,.5);
   set($('phone'),p(t,S.s4[0]+.1,.8),(1-p(t,S.s4[0]+.1,.8))*80);
-  const isField=t>=STEPS[5][0];
+  const isField=t>=STEPS[4][0];
   $('mode').style.opacity=p(t,S.s4[0]+.3,.5);
   $('mChips').classList.toggle('on',!isField); $('mField').classList.toggle('on',isField);
   $('dots').style.opacity=p(t,S.s4[0]+.3,.5);
-  [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>=STEPS[i][0]&&t<STEPS[i][1]||(i==6&&t>=S.s4[1])));
+  [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',t>=STEPS[i][0]&&t<STEPS[i][1]||(i==STEPS.length-1&&t>=S.s4[1])));
   STEPS.forEach((s,i)=>{
     const [a,b,img,cap]=s;
     const first=i==0,last=i==STEPS.length-1;
