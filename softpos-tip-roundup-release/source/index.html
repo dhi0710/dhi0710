@@ -97,7 +97,7 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
     <div id="s2t" class="abs h1" style="left:0;right:0;top:170px;text-align:center;font-size:76px">Round the bill up.<br><span class="P">The difference is the tip.</span></div>
     <div id="s2a" class="abs" style="left:150px;top:500px;width:700px;text-align:center"><div class="mlabel">Bill</div><div class="money">S$35.55</div></div>
     <svg id="s2arrow" class="abs" style="left:900px;top:600px" width="120" height="80" viewBox="0 0 120 80"><path d="M8 40h92M74 14l28 26-28 26" fill="none" stroke="#7A00D6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div id="s2b" class="abs" style="left:1070px;top:500px;width:700px;text-align:center"><div class="mlabel">Guest pays</div><div class="money P" id="s2num">S$35.55</div></div>
+    <div id="s2b" class="abs" style="left:1070px;top:500px;width:700px;text-align:center"><div class="mlabel">Total charged</div><div class="money P" id="s2num">S$35.55</div></div>
     <div id="s2tip" class="abs" style="left:0;right:0;top:820px;text-align:center"><span class="pill" style="background:#E9F6EE;color:#1F7A45;font-size:44px">Tip&nbsp; +S$4.45</span></div>
   </div>
 
@@ -111,7 +111,7 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
     </div>
     <div class="card" id="c2" style="left:1000px">
       <div class="tag">Option 2</div><h3>Total Field</h3>
-      <p>The guest taps <b>Enter amount</b>, then types the total to charge on the Custom page.</p>
+      <p>Staff tap <b>Enter amount</b>, then type the total to charge on the Custom page.</p>
       <div style="position:relative;height:210px;margin-top:30px">
         <div class="field" id="c2a" style="position:absolute;left:0;right:0;top:0;margin:0"><div><small>Charge total</small><b>S$35.05</b></div><span id="c2btn"><i id="rip"></i>Enter amount ›</span></div>
         <div id="c2b" style="position:absolute;left:0;right:0;top:0;opacity:0">
@@ -126,13 +126,13 @@ body{font-family:"Inter",sans-serif;color:#231B33;-webkit-font-smoothing:antiali
   <!-- 4/5 walkthrough -->
   <div class="scene" id="s4">
     <div id="mode"><span id="mChips">Chips</span><span id="mField">Total Field</span></div>
-    <div class="cap" id="cap0"><div class="k">Staff</div><h2>Open the bill as usual</h2><p>Nothing changes for staff. Tap <b>Pay full bill</b> and hand the device to the guest.</p></div>
-    <div class="cap" id="cap1"><div class="k">Guest</div><h2>Rate, then pick a tip</h2><p>The usual percentage tiles are still there: 5%, 10%, 15% and Custom.</p></div>
-    <div class="cap" id="cap2"><div class="k">Guest</div><h2>Round the total up</h2><p>A new row under the tiles: <b>Or round the total up to</b>. Each chip shows the extra amount and its percentage.</p></div>
-    <div class="cap" id="cap3"><div class="k">Guest</div><h2>One tap, neat total</h2><p>Tap <b>40.00</b>. The total and the Confirm button change to S$40.00.</p></div>
-    <div class="cap" id="cap4"><div class="k">Staff</div><h2>Recorded as a tip</h2><p>The success screen splits it out: paid S$40.00, of which <b>S$4.45 is tip</b>.</p></div>
-    <div class="cap" id="cap5"><div class="k">Guest</div><h2>Set the total to charge</h2><p>With Total Field, the row reads <b>Or set the total to charge</b>. It starts at the bill amount.</p></div>
-    <div class="cap" id="cap6"><div class="k">Guest</div><h2>Type any total</h2><p>Tap <b>Enter amount</b> and type the total to pay. <b>Tip amount</b> shows the difference.</p></div>
+    <div class="cap" id="cap0"><div class="k">Step 1 · Bill</div><h2>Open the bill as usual</h2><p>Nothing changes here. Staff tap <b>Pay full bill</b> and the tip screen opens.</p></div>
+    <div class="cap" id="cap1"><div class="k">Step 2 · Tip screen</div><h2>Rating and tip on one screen</h2><p>Staff enter the guest's rating. The usual tip tiles are still there: 5%, 10%, 15% and Custom.</p></div>
+    <div class="cap" id="cap2"><div class="k">Step 3 · Round-up</div><h2>Round the total up</h2><p>A new row under the tiles: <b>Or round the total up to</b>. Each chip shows the extra amount and its percentage.</p></div>
+    <div class="cap" id="cap3"><div class="k">Step 4 · Pick a total</div><h2>One tap, neat total</h2><p>Staff tap the total the guest asks for, here <b>40.00</b>. The total and the Confirm button change to S$40.00.</p></div>
+    <div class="cap" id="cap4"><div class="k">Step 5 · Paid</div><h2>Recorded as a tip</h2><p>The success screen splits it out: paid S$40.00, of which <b>S$4.45 is tip</b>.</p></div>
+    <div class="cap" id="cap5"><div class="k">Step 3 · Total Field</div><h2>Set the total to charge</h2><p>With Total Field, the row reads <b>Or set the total to charge</b>. It starts at the bill amount.</p></div>
+    <div class="cap" id="cap6"><div class="k">Step 4 · Custom page</div><h2>Type the total</h2><p>Staff tap <b>Enter amount</b> and type the total the guest wants to pay on <b>Custom Payable Amount</b>. <b>Tip amount</b> shows the difference.</p></div>
     <div id="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div id="phone"><div id="screen">
       <img id="i0" src="assets/Screenshot_20261023-092718.png">
@@ -227,7 +227,7 @@ function render(t){
   set($('c1'),p(t,a3+.5,.7),(1-p(t,a3+.5,.7))*60);
   set($('c2'),p(t,a3+.9,.7),(1-p(t,a3+.9,.7))*60);
   $('cc1').classList.toggle('on',t>a3+2.2);
-  // Total Field: tap Enter amount, the Custom page opens on Custom Payable Amount, guest types the total
+  // Total Field: tap Enter amount, the Custom page opens on Custom Payable Amount, staff type the total
   const tap=clamp((t-(a3+2.8))/.5); $('rip').style.opacity=tap>0&&tap<1?.35*(1-tap):0;
   $('rip').style.transform=`scale(${.3+2.2*tap})`;
   $('c2btn').style.background=tap>0&&tap<1?'#F3E8FF':'transparent';
